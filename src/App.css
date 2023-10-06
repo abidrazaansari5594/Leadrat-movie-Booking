@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .main_container{
@@ -26,9 +27,8 @@
 .dropdown{
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  gap: 50px;
+  gap: 20px;
 }
 
 .App{
@@ -36,6 +36,7 @@
   grid-template-columns: 80% 20%;
 
 }
+
 
 .right{
   width: 100%;
@@ -52,7 +53,7 @@
 }
 .right ul li{
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 100%;
   
@@ -68,7 +69,7 @@
   filter: invert(100%) sepia(100%) saturate(14%) hue-rotate(212deg) brightness(104%) contrast(104%);
 }
 .unavailable{
-  filter: invert(17%) sepia(6%) saturate(5656%) hue-rotate(319deg) brightness(101%) contrast(96%);
+  filter: invert(15%) sepia(99%) saturate(7455%) hue-rotate(2deg) brightness(101%) contrast(106%);
 }
 
 .yourselection{

@@ -1,8 +1,8 @@
 import "./Main.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import seatBook from "../Healper/SeatBook";
+import {TbArmchair} from "react-icons/tb"
 
 function Main(props) {
     let ticketNumber = props.quanityOfTicker
@@ -34,7 +34,7 @@ function Main(props) {
             toast.error("Please select ticket quantity")
         } else if (numberofbook < ticketNumber) {
             let updatedSeat = seats.map(item => item.map(data => {
-                if (data.id == seatId) {
+                if (data.id === seatId) {
                     if (data.isBooked) {
                         toast.error("This seat already Booked ... !")
                         return { ...data, isSelected: false }
@@ -70,34 +70,33 @@ function Main(props) {
             }
 
         })))
-        toast(`you have booked ${ticketNumber} ${props.type} tikets.. !`)
+        toast.success(`you have booked ${ticketNumber} ${props.type} tikets.. !`)
         setNumberofbook(0)
     }
     return (<div className="container">
-        <div>
+        
             {seats.map((row, index1) => {
                 return (
-                    <div key={index1} style={{ display: "flex" }}>
-                        <div style={{ width: "40px" }}>
+                    <div key={index1} style={{ display: "flex" ,width:"100%"}}>
+                        <div style={{ width: "40px",marginTop:"15px" }}>
                             {String.fromCharCode(69 + index1)}
                         </div>
                         {row.map((seat, index2) => (
-                            <div key={index2}>
-                                {seat.isZero != 0 ? (
-                                    <img className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover'} `}
-                                        src="https://cdn4.iconfinder.com/data/icons/car-components/100/car_seat_front_driver_passenger_race_sit-512.png" alt=""
-                                        style={{ width: "3rem", height: "3rem" }}
-                                        onClick={() => bookHandler(seat.id)}
+                            <>
+                                {seat.isZero !== 0 ? (
+                                    <TbArmchair onClick={() => bookHandler(seat.id)}
+                                    className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover seat'} `}
+                                    style={{ width: "3.5%",color:"black" }}
                                     />
                                 ) : (
-                                    <span style={{ marginRight: "1rem" }}></span>
+                                    <span style={{ marginRight: "3.5%"}}></span>
                                 )}
-                            </div>
+                            </>
                         ))}
                     </div>
                 );
             })}
-        </div>
+        
         <button className="btn" onClick={proceedHandler}>PROCEED</button>
         <ToastContainer
             position="top-center"

@@ -2,6 +2,7 @@
 import './App.css';
 import Main from './Components/Main';
 import { useState } from "react"
+import { TbArmchair } from "react-icons/tb"
 
 function App() {
   const [ticketType, setTicketType] = useState('Standard');
@@ -19,33 +20,34 @@ function App() {
     <div className='main_container'>
       <div className='main_container_inner'>
 
-        <div className='dropdown'>
 
-          <label htmlFor="tickettype" >Ticket Type:</label>
-          <select id="tickettype" value={ticketType} onChange={ticketTypeHandler}>
-            <option value="Standard">Standard</option>
-            <option value="Premium">Premium</option>
-          </select>
-
-          <label htmlFor="qty" >Qty:</label>
-          <select id="qty" value={quanityOfTicker} onChange={quantityHandler}>
-          <option value="">Qnty</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-
-          </select>
-        </div>
 
         <div className="App">
           <div className='left'>
+            <div className='dropdown'>
+
+              <label htmlFor="tickettype" >Ticket Type:</label>
+              <select id="tickettype" value={ticketType} onChange={ticketTypeHandler}>
+                <option value="Standard">Standard</option>
+                <option value="Premium">Premium</option>
+              </select>
+
+              <label htmlFor="qty" >Ticket Quantity:</label>
+              <select id="qty" value={quanityOfTicker} onChange={quantityHandler}>
+                <option value="">Qnty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+              </select>
+            </div>
             <Main type={ticketType} quanityOfTicker={quanityOfTicker} />
 
           </div>
@@ -53,13 +55,16 @@ function App() {
             <div>
               <h3>Key to Seat Layout:</h3>
               <ul>
-                <li> <img className='available' src="https://cdn4.iconfinder.com/data/icons/car-components/100/car_seat_front_driver_passenger_race_sit-512.png" alt="" />
+                <li>
+                  <TbArmchair className='available seat' />
                   <p>Available</p></li>
 
-                <li> <img className='unavailable' src="https://cdn4.iconfinder.com/data/icons/car-components/100/car_seat_front_driver_passenger_race_sit-512.png" alt="" />
+                <li>
+                  <TbArmchair className='unavailable size' />
                   <p>Unavailable</p></li>
 
-                <li> <img className='yourselection' src="https://cdn4.iconfinder.com/data/icons/car-components/100/car_seat_front_driver_passenger_race_sit-512.png" alt="" />
+                <li>
+                  <TbArmchair className='yourselection size' />
                   <p>Your Selection</p></li>
               </ul>
             </div>
