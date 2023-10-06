@@ -56,7 +56,7 @@ function App() {
               <h3>Key to Seat Layout:</h3>
               <ul>
                 <li>
-                  <TbArmchair className='available seat' />
+                  <TbArmchair className='available seat' style={{width:"35px",height:"35px"}} />
                   <p>Available</p></li>
 
                 <li>

@@ -7,7 +7,7 @@ import {TbArmchair} from "react-icons/tb"
 function Main(props) {
     let ticketNumber = props.quanityOfTicker
 
-
+    // remove state from layout
     const [layout, setLayout] = useState([
         [0, 0, 0, 0, 0, 1, 2, 0, 3, 4, 0, 5, 6, 0, 7, 8, 0, 9, 10, 0, 11, 12, 0, 13, 14],
         [0, 0, 0, 0, 0, 15, 16, 0, 17, 18, 0, 19, 20, 0, 21, 22, 0, 23, 24, 0, 25, 26, 0, 27, 28],
@@ -26,26 +26,26 @@ function Main(props) {
     const [seats, setSeats] = useState(layout.map(item => item.map((data) => (
         { id: data, isZero: data, isSelected: false, isBooked: false, type: "standard" }))));
 
-    const [numberofbook, setNumberofbook] = useState(seats.flat().filter(item => item.isSelected).length)
-
+    const [selectedSeats, setSelectedSeats] = useState(seats.flat().filter(item => item.isSelected).length)
+    
     const bookHandler = (seatId) => {
     
         if (ticketNumber === '') {
             toast.error("Please select ticket quantity")
-        } else if (numberofbook < ticketNumber) {
+        } else if (selectedSeats < ticketNumber) {
             let updatedSeat = seats.map(item => item.map(data => {
                 if (data.id === seatId) {
                     if (data.isBooked) {
                         toast.error("This seat already Booked ... !")
                         return { ...data, isSelected: false }
                     } else {
-                        if (data.isSelected === false) {
-                            setNumberofbook(numberofbook + 1)
-                            return { ...data, isSelected: true }
+                        if (data.isSelected) {
+                            setSelectedSeats(selectedSeats - 1)
+                            return { ...data, isSelected: false }
 
                         } else {
-                            setNumberofbook(numberofbook - 1)
-                            return { ...data, isSelected: false }
+                            setSelectedSeats(selectedSeats + 1)
+                            return { ...data, isSelected: true }
                         }
                     }
 
@@ -71,7 +71,7 @@ function Main(props) {
 
         })))
         toast.success(`you have booked ${ticketNumber} ${props.type} tikets.. !`)
-        setNumberofbook(0)
+        setSelectedSeats(0)
     }
     return (<div className="container">
         
@@ -82,11 +82,11 @@ function Main(props) {
                             {String.fromCharCode(69 + index1)}
                         </div>
                         {row.map((seat, index2) => (
-                            <>
+                            <><p key={index2}></p>
                                 {seat.isZero !== 0 ? (
                                     <TbArmchair onClick={() => bookHandler(seat.id)}
                                     className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover seat'} `}
-                                    style={{ width: "3.5%",color:"black" }}
+                                    style={{ width: "3.5%",height:"40px",color:"black" }}
                                     />
                                 ) : (
                                     <span style={{ marginRight: "3.5%"}}></span>
