@@ -66,6 +66,11 @@ function App() {
                 <li>
                   <TbArmchair className='yourselection size' />
                   <p>Your Selection</p></li>
+
+                  <li>
+                  <TbArmchair className='premiumcolor size ' />
+                  <p>Premium</p></li>
+
               </ul>
             </div>
           </div>

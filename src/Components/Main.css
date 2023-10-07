@@ -6,6 +6,7 @@
   flex-direction: column;
   border-top: 1px solid black;
   border-left: 1px solid black;
+
 }
 
 
@@ -44,4 +45,8 @@
 .hover:hover {
   cursor: pointer;
   filter: invert(95%) sepia(41%) saturate(6882%) hue-rotate(54deg) brightness(90%) contrast(108%);
+}
+
+.premiumcolor{
+  filter: invert(62%) sepia(27%) saturate(515%) hue-rotate(71deg) brightness(84%) contrast(88%);
 }
