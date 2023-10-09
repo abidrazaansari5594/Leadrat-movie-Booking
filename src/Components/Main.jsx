@@ -72,7 +72,7 @@ function Main(props) {
                     if (selectedCount < ticketNumber) {
                         // Select seats in the same row up to ticketNumber
                         for (let i = seatIndex; i < row.length; i++) {
-                            if (!row[i].isBooked && !row[i].isSelected) {
+                            if (row[i].id !==0 && !row[i].isBooked  && !row[i].isSelected) {
                                 row[i].isSelected = true;
                                 selectedCount++;
                             }
