@@ -7,7 +7,7 @@ import {TbArmchair} from "react-icons/tb"
 function Main(props) {
     let ticketNumber = props.quanityOfTicker
 
-    // remove state from layout
+
     const layout=[
         [0, 0, 0, 0, 0, 1, 2, 0, 3, 4, 0, 5, 6, 0, 7, 8, 0, 9, 10, 0, 11, 12, 0, 13, 14],
         [0, 0, 0, 0, 0, 15, 16, 0, 17, 18, 0, 19, 20, 0, 21, 22, 0, 23, 24, 0, 25, 26, 0, 27, 28],
@@ -20,6 +20,7 @@ function Main(props) {
         [135, 136, 137, 0, 0, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 0, 0, 0, 148, 149, 150, 151, 152, 153, 154],
         [0, 0, 0, 0, 0, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 0, 0, 0, 165, 166, 167, 168, 169, 170, 171],
         [0, 0, 0, 0, 0, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 0, 0, 0, 182, 183, 184, 185, 186, 187, 188],
+        [0, 0, 0, 0, 0, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 0, 0, 0, 199, 200, 201, 202, 203, 204, 205],
 
     ]
 
@@ -39,10 +40,7 @@ function Main(props) {
         return arr;
     }
     
-    
-    
-        
-    
+
 
     const bookHandler = (seatId,seat) => {
         let unSelectPrev = resetSelection(seats);
@@ -118,7 +116,8 @@ function Main(props) {
                             <><p key={index2}></p>
                                 {seat.isZero !== 0 ? (
                                     <TbArmchair onClick={() => bookHandler(seat.id,seat)}
-                                    className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover seat'} ${seat.type=="Premium" && "premiumcolor"} `}
+                                    className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover seat'} 
+                                    ${seat.type==="Premium" && "premiumcolor"} `}
                                     style={{ width: "3.5%",height:"40px",color:"black" }}
                                     />
                                 ) : (
