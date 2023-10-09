@@ -7,7 +7,7 @@ import {TbArmchair} from "react-icons/tb"
 function Main(props) {
     let ticketNumber = props.quanityOfTicker
 
-
+    
     const layout=[
         [0, 0, 0, 0, 0, 1, 2, 0, 3, 4, 0, 5, 6, 0, 7, 8, 0, 9, 10, 0, 11, 12, 0, 13, 14],
         [0, 0, 0, 0, 0, 15, 16, 0, 17, 18, 0, 19, 20, 0, 21, 22, 0, 23, 24, 0, 25, 26, 0, 27, 28],
@@ -43,6 +43,7 @@ function Main(props) {
 
 
     const bookHandler = (seatId,seat) => {
+        console.log(seat)
         let unSelectPrev = resetSelection(seats);
         
         if (ticketNumber === '') {
@@ -59,6 +60,7 @@ function Main(props) {
                 if (seat.id === seatId && !seat.isBooked) {
                     // Get the index of the selected seat in the current row
                     const seatIndex = row.indexOf(seat);
+                
                     let selectedCount = 0;
                     // Count the number of selected seats in the current row
                     row.forEach((s) => {
@@ -116,8 +118,7 @@ function Main(props) {
                             <><p key={index2}></p>
                                 {seat.isZero !== 0 ? (
                                     <TbArmchair onClick={() => bookHandler(seat.id,seat)}
-                                    className={` ${seat.isSelected ? 'selected' : seat.isBooked ? 'booked' : 'available hover seat'} 
-                                    ${seat.type==="Premium" && "premiumcolor"} `}
+                                    className={`${seat.isBooked ? 'booked' : seat.isSelected ? 'selected' : seat.type === 'Premium' ? 'premiumcolor' : 'available hover seat'}`}
                                     style={{ width: "3.5%",height:"40px",color:"black" }}
                                     />
                                 ) : (

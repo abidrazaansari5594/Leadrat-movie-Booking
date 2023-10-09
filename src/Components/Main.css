@@ -32,6 +32,7 @@
 
 .booked {
   filter: invert(15%) sepia(99%) saturate(7455%) hue-rotate(2deg) brightness(101%) contrast(106%);
+
 }
 
 .seat {
