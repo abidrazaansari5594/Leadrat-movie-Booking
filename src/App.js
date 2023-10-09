@@ -20,7 +20,10 @@ function App() {
     <div className='main_container'>
       <div className='main_container_inner'>
 
-
+      <div className="nav">
+     <h2>Jawan</h2>
+<p>Alankar Cinema: Nagpur | Today, 08 Oct, 09:30 PM</p>
+      </div>
 
         <div className="App">
           <div className='left'>
