@@ -110,7 +110,7 @@ function Main(props) {
             }
 
         })))
-        toast.success(`Congratulations, you have booked the ${props.type} tickets..!`)
+        toast.success(`Congratulations, you have booked the ${props.type} tickets of ${props.movieName.name}..!`)
         setSelectedSeats(0)
     }
     return (<div className="container">

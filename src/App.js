@@ -79,7 +79,7 @@ function App() {
 
               </select>
             </div>
-            <Main type={ticketType} quanityOfTicker={quanityOfTicker} />
+            <Main movieName={arr[movieData]} type={ticketType} quanityOfTicker={quanityOfTicker} />
 
           </div>
           <div className='right'>
