@@ -95,6 +95,11 @@ function Main(props) {
             toast.error("Please select ticket quantity");
             return
         }
+        const hasSelected = seats.some(row => row.some(item => item.isSelected));
+        if(hasSelected){
+            toast.error("Please select seat.. !");
+            return
+        }
         setSeats(seats.map(item => item.map(data => {
             if (data.isSelected) {
                 return { ...data, isBooked: true, isSelected: false }

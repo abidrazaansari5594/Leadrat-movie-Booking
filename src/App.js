@@ -3,6 +3,8 @@ import './App.css';
 import Main from './Components/Main';
 import { useState } from "react"
 import { TbArmchair } from "react-icons/tb"
+import { BsPencil } from "react-icons/bs"
+import {RxCross2} from "react-icons/rx"
 
 function App() {
   const [ticketType, setTicketType] = useState('Standard');
@@ -20,10 +22,20 @@ function App() {
     <div className='main_container'>
       <div className='main_container_inner'>
 
-      <div className="nav">
-     <h2>Jawan</h2>
-<p>Alankar Cinema: Nagpur | Today, 08 Oct, 09:30 PM</p>
-      </div>
+        <div className='nav-container'>
+          <div className="nav">
+            <h2>Jawan</h2>
+            <p>Alankar Cinema: Nagpur | Today, 08 Oct, 09:30 PM</p>
+          </div>
+          <div class="ticketscount">
+            <p class="ticket-number">{quanityOfTicker}</p>
+            <p class="ticket-label">tickets</p>
+            <div class="icon">
+              <BsPencil />
+            </div>
+          </div>
+          <RxCross2 className='cross'/>
+        </div>
 
         <div className="App">
           <div className='left'>
@@ -59,7 +71,7 @@ function App() {
               <h3>Key to Seat Layout:</h3>
               <ul>
                 <li>
-                  <TbArmchair className='available seat' style={{width:"35px",height:"35px"}} />
+                  <TbArmchair className='available seat' style={{ width: "35px", height: "35px" }} />
                   <p>Available</p></li>
 
                 <li>
@@ -70,7 +82,7 @@ function App() {
                   <TbArmchair className='yourselection size' />
                   <p>Your Selection</p></li>
 
-                  <li>
+                <li>
                   <TbArmchair className='premiumcolor size ' />
                   <p>Premium</p></li>
 
