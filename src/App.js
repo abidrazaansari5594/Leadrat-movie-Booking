@@ -57,13 +57,13 @@ function App() {
           <div className='left'>
             <div className='dropdown'>
 
-              <label htmlFor="tickettype" >Ticket Type:</label>
+              <label htmlFor="tickettype" style={{fontSize:"13px"}} >Ticket Type:</label>
               <select id="tickettype" value={ticketType} onChange={ticketTypeHandler}>
                 <option value="Standard">Standard</option>
                 <option value="Premium">Premium</option>
               </select>
 
-              <label htmlFor="qty" >Ticket Quantity:</label>
+              <label htmlFor="qty" style={{fontSize:"13px"}}>Ticket Quantity:</label>
               <select id="qty" value={quanityOfTicker} onChange={quantityHandler}>
                 <option value="">Qnty</option>
                 <option value="1">1</option>

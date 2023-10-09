@@ -90,16 +90,18 @@ function Main(props) {
         setSelectedSeats(selectedSeats + 1);
     };
     
+    const hasSelected = seats.some(row => row.some(item => item.isSelected));
     const proceedHandler = () => {
+        if(!hasSelected){
+            toast.error("Please select seat.. !");
+            return
+        }
         if (ticketNumber === ''){
             toast.error("Please select ticket quantity");
             return
         }
-        const hasSelected = seats.some(row => row.some(item => item.isSelected));
-        if(hasSelected){
-            toast.error("Please select seat.. !");
-            return
-        }
+        
+        
         setSeats(seats.map(item => item.map(data => {
             if (data.isSelected) {
                 return { ...data, isBooked: true, isSelected: false }
@@ -151,5 +153,5 @@ function Main(props) {
         />
     </div>)
 }
-
+ 
 export default Main;
