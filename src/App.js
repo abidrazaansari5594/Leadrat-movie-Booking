@@ -6,9 +6,18 @@ import { TbArmchair } from "react-icons/tb"
 import { BsPencil } from "react-icons/bs"
 import {RxCross2} from "react-icons/rx"
 
+
+
 function App() {
   const [ticketType, setTicketType] = useState('Standard');
   const [quanityOfTicker, setQuantityOfTicker] = useState('')
+  const [movieData,setMovieData] =useState(0)
+  const arr=[{name:"Jawan",thether:"Alankar Cinema: Nagpur | Today, 08 Oct, 09:30 PM"},
+  {name:"Gadder 2",thether:"Woodland Cinema: Virar (W) | Today, 07 Oct, 08:30 PM"},
+  {name:"OMG 2",thether:"Roxy Cinema: Charni Road | tomorrow, 08 Oct, 09:30 PM"},
+  {name:"Coat",thether:"Plaza Cinema: Dadar | Today, 08 Oct, 09:30 PM"},
+  {name:"Neeyat",thether:"Maratha Cinema: Mumbai | Today, 05 Oct, 07:30 PM"},
+ ]
 
   const ticketTypeHandler = (event) => {
     setTicketType(event.target.value);
@@ -18,23 +27,30 @@ function App() {
     setQuantityOfTicker(event.target.value)
   }
 
+  const movieChangeHandler=()=>{
+    if(movieData===4){
+      setMovieData(0)
+    }else{
+      setMovieData(movieData+1)
+    }
+  }
   return (
     <div className='main_container'>
       <div className='main_container_inner'>
 
         <div className='nav-container'>
           <div className="nav">
-            <h2>Jawan</h2>
-            <p>Alankar Cinema: Nagpur | Today, 08 Oct, 09:30 PM</p>
+            <h2>{arr[movieData].name}</h2>
+            <p style={{fontSize:"13px"}}>{arr[movieData].thether}</p>
           </div>
-          <div class="ticketscount">
-            <p class="ticket-number">{quanityOfTicker}</p>
-            <p class="ticket-label">tickets</p>
-            <div class="icon">
+          <div className="ticketscount">
+            <p className="ticket-number">{quanityOfTicker}</p>
+            <p className="ticket-label">{quanityOfTicker==='' ? "tickets" : quanityOfTicker<=1 ? "ticket" : "tickets"}</p>
+            <div className="icon">
               <BsPencil />
             </div>
           </div>
-          <RxCross2 className='cross'/>
+          <RxCross2 onClick={movieChangeHandler} className='cross'/>
         </div>
 
         <div className="App">
