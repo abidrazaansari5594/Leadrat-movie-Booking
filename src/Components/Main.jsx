@@ -103,7 +103,7 @@ function Main(props) {
             }
 
         })))
-        toast.success(`you have booked ${ticketNumber} ${props.type} tikets.. !`)
+        toast.success(`Congratulations, you have booked the tickets..!`)
         setSelectedSeats(0)
     }
     return (<div className="container">
@@ -118,7 +118,8 @@ function Main(props) {
                             <><p key={index2}></p>
                                 {seat.isZero !== 0 ? (
                                     <TbArmchair onClick={() => bookHandler(seat.id,seat)}
-                                    className={`${seat.isBooked ? 'booked' : seat.isSelected ? 'selected' : seat.type === 'Premium' ? 'premiumcolor' : 'available hover seat'}`}
+                                    className={`${seat.isBooked ? 'booked' : seat.isSelected ? 'selected'
+                                     : seat.type === 'Premium' ? 'premiumcolor hover' : 'available hover seat'}`}
                                     style={{ width: "3.5%",height:"40px",color:"black" }}
                                     />
                                 ) : (
